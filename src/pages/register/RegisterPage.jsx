@@ -36,7 +36,7 @@ const RegisterPage = () => {
     houseNumber: "",
     zip: "",
   });
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState();
   const handleInputsChange = (e) => {
     //step 1
     // setInputsValue((currentState) => {
@@ -72,7 +72,7 @@ const RegisterPage = () => {
       // inputsValue.isBusiness = false;
       setErrors(validateRegister(inputsValue));
       console.log(errors);
-      if (errors) {
+      if (validateRegister(inputsValue)) {
         return;
       }
       let request = normalizeData(inputsValue);

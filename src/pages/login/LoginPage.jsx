@@ -64,9 +64,8 @@ const LoginPage = () => {
         progress: undefined,
         theme: "light",
       });
-      autoLogin(true); //skip token test
+      await autoLogin(true); //skip token test
       navigate(ROUTES.HOME);
-      window.location.reload();
     } catch (err) {
       console.log("err from login", err);
     }
