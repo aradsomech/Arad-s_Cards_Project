@@ -39,18 +39,15 @@ const RegisterPage = () => {
   });
   const [errors, setErrors] = useState();
   const handleInputsChange = (e) => {
-    console.log(e.target.value);
     setInputsValue((currentState) => ({
       ...currentState,
       [e.target.id]: e.target.value,
     }));
   };
   const handleSubmit = async (event) => {
-    console.log("inputsValue", inputsValue);
     try {
       event.preventDefault();
       setErrors(validateRegister(inputsValue));
-      console.log(validateRegister(inputsValue));
       if (validateRegister(inputsValue)) {
         return;
       }
