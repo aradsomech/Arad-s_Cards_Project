@@ -21,13 +21,13 @@ const Links = () => {
         </NavLinkComponent>
       ))}
       {loggedIn &&
-        adminOrBusinessLinks.map((myItem) => (
+        loggedInLinks.map((myItem) => (
           <NavLinkComponent to={myItem.to} key={nextKey()}>
             {myItem.children}
           </NavLinkComponent>
         ))}
       {userData?.isAdmin || userData?.isBusiness
-        ? loggedInLinks.map((myItem) => (
+        ? adminOrBusinessLinks.map((myItem) => (
             <NavLinkComponent to={myItem.to} key={nextKey()}>
               {myItem.children}
             </NavLinkComponent>

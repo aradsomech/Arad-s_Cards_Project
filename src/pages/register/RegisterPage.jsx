@@ -35,30 +35,11 @@ const RegisterPage = () => {
     street: "",
     houseNumber: "",
     zip: "",
+    isBusiness: false,
   });
   const [errors, setErrors] = useState();
   const handleInputsChange = (e) => {
-    //step 1
-    // setInputsValue((currentState) => {
-    //   currentState.firstName = e.target.value;
-    //   let newObject = { ...currentState };
-    //   return newObject;
-    // });
-
-    //step 2
-    // setInputsValue((currentState) => {
-    //   currentState[e.target.id] = e.target.value;
-    //   let newObject = { ...currentState };
-    //   return newObject;
-    // });
-
-    //step 3
-    // setInputsValue((currentState) => ({
-    //   ...currentState,
-    //   firstName: e.target.value,
-    // }));
-
-    //step 4
+    console.log(e.target.value);
     setInputsValue((currentState) => ({
       ...currentState,
       [e.target.id]: e.target.value,
@@ -68,10 +49,8 @@ const RegisterPage = () => {
     console.log("inputsValue", inputsValue);
     try {
       event.preventDefault();
-
-      // inputsValue.isBusiness = false;
       setErrors(validateRegister(inputsValue));
-      console.log(errors);
+      console.log(validateRegister(inputsValue));
       if (validateRegister(inputsValue)) {
         return;
       }
@@ -84,6 +63,7 @@ const RegisterPage = () => {
       toast.error(err?.response?.data || "error");
     }
   };
+
   return (
     <Box
       onSubmit={handleSubmit}
@@ -300,6 +280,12 @@ const RegisterPage = () => {
           </Grid>
           <Grid item xs={12}>
             <FormControlLabel
+              onClick={() =>
+                setInputsValue((currentState) => ({
+                  ...currentState,
+                  isBusiness: !currentState.isBusiness,
+                }))
+              }
               control={<Checkbox value="allowExtraEmails" color="primary" />}
               label="Business Account"
             />
