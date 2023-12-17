@@ -43,7 +43,6 @@ const HomePage = () => {
     // });
   }, [query, dataFromServer]);
   const handleDeleteCard = (_id) => {
-    console.log("_id to delete (HomePage)", _id);
     setDataFromServer((dataFromServerCopy) =>
       dataFromServerCopy.filter((card) => card._id != _id)
     );
@@ -53,7 +52,6 @@ const HomePage = () => {
   const handleEditCard = (_id) => {
     navigate(`${ROUTES.EDITCARD}/${_id}`);
   };
-  console.log(filteredCards);
   return (
     <Container>
       {filteredCards.length > 1 ? (

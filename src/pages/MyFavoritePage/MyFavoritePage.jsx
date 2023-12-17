@@ -45,7 +45,6 @@ const MyFavoritePage = () => {
     // });
   }, [query, dataFromServer]);
   const handleDeleteCard = (_id) => {
-    console.log("_id to delete (HomePage)", _id);
     setDataFromServer((dataFromServerCopy) =>
       dataFromServerCopy.filter((card) => card._id != _id)
     );

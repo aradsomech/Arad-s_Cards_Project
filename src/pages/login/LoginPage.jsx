@@ -44,7 +44,6 @@ const LoginPage = () => {
         email: emailValue,
         password: passwordValue,
       });
-      console.log("joiResponse", joiResponse);
       setErrorsState(joiResponse);
       if (joiResponse) return;
       let { data } = await axios.post("/users/login", {
@@ -53,7 +52,6 @@ const LoginPage = () => {
       });
       // localStorage.setItem("token", data);
       storeToken(data, rememberMe);
-      console.log("data from login", data);
       toast("You logged in successfully 👌", {
         position: "top-right",
         autoClose: 5000,
